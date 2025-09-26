@@ -1,45 +1,161 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .nav{
-    height: 8vh;
-    width: 100vw;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0  90px;
-    border-bottom: solid 1px gray;
-   
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            height: 70px;
 }
+      .logotipo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logotipo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
 
-.tela{ 
+         .nav-rigth {
+            display: flex;
+            align-items: center;
+        }
+        
+        .ipt-container {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        /* Campo de busca */
+        .ipt {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ipt i {
+            position: absolute;
+            left: 10px;
+            color: #666;
+            z-index: 1;
+        }
+        
+        .ipt input {
+            padding: 8px 8px 8px 35px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            height: 35px;
+            width: 200px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-size: 9px;
+             placeholder{
+                font-size: 5px;
+             }
+            
+        }
+        
+        .ipt input:focus {
+            outline: none;
+            border-color: #4a7bff;
+            box-shadow: 0 0 0 2px rgba(74, 123, 255, 0.2);
+        }
+        
+        /* Ícone de desligar */
+        .fa-power-off {
+            font-size: 20px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .fa-power-off:hover {
+            color: #ff4a4a;
+        }
 
-}
 
 .menu-tela{
     width: 100vw;
+    // height: auto;
 }
 
-.menu{
-    width: 18vw;
+.menu-notas{
+    width: 24vw;
     height: 100vh;
     border-right: solid 1px gray;
+    justify-items: center;
 }
 .tela{
-    width: 75vw;
+    width: 80vw;
 }
 
-.nav-rigth{
-    height: 20px;
+.card-container{
+    width: 300px;
+   
+    height: 100px;
+    display: flex;
+    border-radius: 10px;
+    gap: 10px;
+   
 }
-.ipt-container{
-    
-    
-}    
+.card-img{
+    border-radius: 10px;
+    width: 150px;
+    height: 100px;
+    border: solid 1px grey;
+    gap:5px;
 
-.ipt{
-    height: 20px;
-    border: solid 2px gray;
-    border-radius: 6px;
+    img{
+        width: 150px;
+        height: 100px;
+        padding: 20px;
+    }
+    
+
+}
+.card-txt{
+    padding-top: 14px;
+    width: 151px;
+    height: 100px;
     align-items: center;
-    
+    justify-items: center;
+
+}
+.card-title{
     
 
 }
+.card-bts{
+    display: flex;
+    gap: 8px;
+    
+    span{padding: 5px 7px;
+    border-radius: 5px;
+    font-size: 10px;
+    max-width: 100%;
+    display: inline-block;
+    background-color:  #808080;
+    }
+    
+
+}
+.card-date{
+    
+
+}
+
+
