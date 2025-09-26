@@ -11,7 +11,6 @@ export class LoginNote {
   email: string = '';
   password: string = '';
   message: string = '';
-
   constructor(private authService: MockAuthService) {}
 
   async login() {
