@@ -1,7 +1,45 @@
-.tela{
+.nav{
+    height: 8vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0  90px;
+    border-bottom: solid 1px gray;
+   
+}
+
+.tela{ 
 
 }
 
 .menu-tela{
     width: 100vw;
+}
+
+.menu{
+    width: 18vw;
+    height: 100vh;
+    border-right: solid 1px gray;
+}
+.tela{
+    width: 75vw;
+}
+
+.nav-rigth{
+    height: 20px;
+}
+.ipt-container{
+    
+    
+}    
+
+.ipt{
+    height: 20px;
+    border: solid 2px gray;
+    border-radius: 6px;
+    align-items: center;
+    
+    
+
 }
