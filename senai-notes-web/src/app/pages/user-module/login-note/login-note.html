@@ -1,4 +1,30 @@
-<p>Teste tela login 
-
-    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-</p>
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card border mb-3 gap-2 col-6 mt-5" style="max-width: 30rem;">
+        <div class="card-body py-8">
+            <div class="d-flex flex-column align-items-center justify-content-center text-center">
+                <img src="assets/imagens/logo.png" class="mb-2" alt="...">
+                <h5 class="card-title">Welcome to Note</h5>
+                <p>Please log in to continue</p>
+            </div>
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email Address</label>
+                <input id="emailInput" class="form-control form-control-sm" type="text" placeholder="Email Address"
+                    aria-label=".form-control-sm example">
+            </div>
+            <div class="mb-3">
+                <label for="passwordInput" class="form-label">Password</label>
+                <input id="passwordInput" class="form-control form-control-sm" type="text" placeholder="Password"
+                    aria-label=".form-control-sm example">
+            </div>
+            <div class="mb-3">
+                <button type="button" class="btn btn-primary btn-sm w-100" (click)="login()">Login</button>
+            </div>
+            <div class="my-2">
+                <hr class="border border-secondary border-1 opacity-5">
+            </div>
+            <div class="align-items-center justify-content-center text-center">
+              <a href="" class="text-dark">No account yet? Sign Up</a>
+            </div>
+        </div>
+    </div>
+</div>
