@@ -37,7 +37,6 @@
     align-items: center;
 }
 
-
 .ipt {
     position: relative;
     display: flex;
@@ -55,16 +54,14 @@
     padding: 8px 8px 8px 35px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    height: 35px;
+    height: 50px;
     width: 200px;
-    font-size: 14px;
-    transition: all 0.3s ease;
     font-size: 9px;
+    transition: all 0.3s ease;
+}
 
-    placeholder {
-        font-size: 5px;
-    }
-
+.ipt input::placeholder {
+    font-size: 5px;
 }
 
 .ipt input:focus {
@@ -73,7 +70,17 @@
     box-shadow: 0 0 0 2px rgba(74, 123, 255, 0.2);
 }
 
-/* Ícone de desligar */
+.btn-create-notas button {
+    width: 15rem;
+}
+
+.btn-create-notas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24vw;
+}
+
 .fa-power-off {
     font-size: 20px;
     color: #666;
@@ -89,9 +96,10 @@
     color: #ff4a4a;
 }
 
-
 .menu-tela {
     width: 100vw;
+    height: 100vh;
+    display: flex;
 }
 
 .menu-notas {
@@ -101,7 +109,6 @@
     justify-items: center;
 }
 
-
 .card-container {
     width: 300px;
     height: 100px;
@@ -110,16 +117,14 @@
     border-bottom: 1px solid rgba(128, 128, 128, 0.3);
     padding: 5px;
     box-sizing: border-box;
-
 }
 
 .card-img {
     border-radius: 10px;
     width: 100px;
     height: 85px;
-    border: solid 1px grey;
+    border: 1px solid grey;
     overflow: hidden;
-
 }
 
 .card-img img {
@@ -171,15 +176,15 @@
     width: 53vw;
     border-right: 1px solid rgba(128, 128, 128, 0.3);
     padding: 20px;
-
+    display: flex;
+    flex-direction: column;
 }
 
 .tela-banner {
-    width: 49.5vw;
+    width: 100%;
     height: 150px;
     background-color: rgba(128, 128, 128, 0.6);
     border-radius: 9px;
-
 }
 
 .tela-title {
@@ -187,15 +192,15 @@
     font-family: sans-serif;
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .edited-tags {
-    width: 49.5vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 6px;
     margin-top: 14px;
-
 }
 
 .edited,
@@ -209,24 +214,31 @@
 
 .tela-description {
     margin-top: 10px;
-    width: 49.5vw;
+    width: 100%;
     height: 55vh;
-     background-color: #f5f9fa;
-     border-radius: 9px;
+    background-color: #f5f9fa;
+    border-radius: 9px;
     font-size: 16px;
-    font-weight: 200px;
     margin-bottom: 12px;
-    
 }
-.txt-description{
+
+.txt-description {
     padding: 12px;
 }
 
-.tela-footer{
+.tela-footer {
+    display: flex;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding-top: 10px;
+}
 
+.tela-footer button {
+    width: 150px;
+}
 
-    button{
-        width: 150px;
-    }
+.bts-footer {
+    align-items: center;
+    display: flex;
+    gap: 12px;
 }
