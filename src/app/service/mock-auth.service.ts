@@ -12,7 +12,7 @@ export class MockAuthService {
   private loggedInUser: UserMock | null = null;
 
   constructor() {
-    if (this.isBrowser()) {
+     if (this.isBrowser()) {
       const saved = localStorage.getItem('mockUsers');
       if (saved) {
         this.users = JSON.parse(saved);
@@ -31,7 +31,10 @@ export class MockAuthService {
         password: '12345678'
       }];
     }
+   
   }
+
+  
 
   private isBrowser(): boolean {
     return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
