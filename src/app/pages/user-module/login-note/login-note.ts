@@ -16,6 +16,7 @@ export class LoginNote {
   sucessLogin: string;
   incorrectCredentials: string;
   loginNote: FormGroup;
+  darkMode: boolean = false
 
   constructor(private fb: FormBuilder,private cd: ChangeDetectorRef) {
     this.loginNote = this.fb.group({
@@ -74,5 +75,18 @@ export class LoginNote {
     }
     this.cd.detectChanges();
   }
+ 
+  ligarDesligarDarkMode() {
+
+    this.darkMode = !this.darkMode; // o inverso do this.darkmode .
+
+    document.body.classList.toggle("dark-mode", this.darkMode);
+    
+    localStorage.setItem("darkMode", this.darkMode.toString());
+  }
+
 
 }
+
+
+
