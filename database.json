@@ -1,15 +1,28 @@
 {
-    "notas" : [
-        {
-            "titulo": "Titulo da nota",
-            "descricao" : "Descricao da nota",
-            "imagemUrl" : "link da imagem",
-            "usuarioId" : "1",
-            "tag" : [
-                "Tag 1",
-                "Tag 2",
-                "Tag 3"
-            ]
-        }
-    ]
+  "notes": [
+    {
+      "id": 1,
+      "titulo": "Título do card",
+      "descricao": "Descrição da nota 1",
+      "imagemUrl": "assets/imagens/Rectangle 45.png",
+      "data": "2025-09-28",
+      "tags": ["Travel", "Personal"]
+    },
+    {
+      "id": 2,
+      "titulo": "Título do card",
+      "descricao": "Descrição da nota 2",
+      "imagemUrl": "assets/imagens/Rectangle 45.png",
+      "data": "2025-09-28",
+      "tags": ["Travel", "Personal"]
+    },
+    {
+      "id": 3,
+      "titulo": "Título do card",
+      "descricao": "Descrição da nota 3",
+      "imagemUrl": "assets/imagens/Rectangle 45.png",
+      "data": "2025-09-28",
+      "tags": ["Travel", "Personal"]
+    }
+  ]
 }

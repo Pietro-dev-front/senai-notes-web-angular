@@ -71,6 +71,13 @@
         <aside class="tela">
 
             <div class="tela-banner"></div>
+            <div class="tela-banner">
+  <img *ngIf="imageUrl; else defaultBanner" [src]="imageUrl" alt="Banner" style="max-width:100%; max-height:200px;">
+  <ng-template #defaultBanner>
+    <img src="assets/imagens/Rectangle 45.png" alt="Banner padrão" style="max-width:100%; max-height:200px;">
+  </ng-template>
+</div>
+<input type="file" (change)="onFileSelected($event)">
             <div class="tela-title">
                 <div class="create-title">
                     <h2>Enter a title..</h2>
