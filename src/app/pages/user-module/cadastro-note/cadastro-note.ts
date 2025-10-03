@@ -16,6 +16,7 @@ export class CadastroNote {
   sucessLogin!: string;
   incorrectCredentials!: string;
   newPasswordErrorMessage!: string;
+  darkMode: boolean = false
 
 
   constructor( private fb:FormBuilder) {
@@ -80,6 +81,14 @@ export class CadastroNote {
     } else {
       this.incorrectCredentials = "Credenciais incorretas";
     }
+  }
+  ligarDesligarDarkMode() {
+
+    this.darkMode = !this.darkMode; // o inverso do this.darkmode .
+
+    document.body.classList.toggle("dark-mode", this.darkMode);
+    
+    localStorage.setItem("darkMode", this.darkMode.toString());
   }
 
 }

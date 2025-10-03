@@ -1,0 +1,17 @@
+.darkmode-btn {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+::ng-deep body.dark-mode .fundo {
+
+    background-color: black !important;
+  
+  }
+  
+::ng-deep body.dark-mode .imagem-central {
+
+    background-color: #191919 !important;
+  
+  }
