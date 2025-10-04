@@ -1,7 +1,8 @@
 <section class="section-container">
     <section class="nav" style="">
         <div class="logotipo" style="height: 40px; ">
-            <img src="assets/imagens/logo.png" alt="">
+            <button (click) = "ligarDesligarDarkMode()" class = "darkmode-btn botao-menor"><i class="fa-solid fa-moon"></i></button>
+            <img src="darkMode == true? assets/imagens/logo.png" alt="">
         </div>
         <div class="nav-rigth" style="display:flex; ">
             <div class="ipt-container" style="display: flex; gap: 15px;">
@@ -19,7 +20,7 @@
 
 
 
-    <section class="menu-tela" style="display: flex; ">
+    <section class="bem-vindo menu-tela" style="display: flex; ">
         <aside class="menu-notas" style="">
             <div class="btn-create-notas">
                 <button class="btn btn-primary" style="margin: 25px 0;">
