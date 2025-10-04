@@ -5,12 +5,16 @@
         </div>
         <div class="nav-rigth" style="display:flex; ">
             <div class="ipt-container" style="display: flex; gap: 15px;">
-                <div class="ipt">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search by title, content, or tags..." style="height:42px;">
+                <div class="ipt ipt-mobile">
+                    <h2 class="search-nav"> SERCH</h2>
+                    <div class="nav-mobile">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search by title, content, or tags..." style="height:42px;">
+                    </div>
+                    <i class="fa-solid fa-power-off" style="height: 30px;"></i>
                 </div>
-                
-                <i class="fa-solid fa-power-off" style="height: 30px;"></i>
+
 
             </div>
 
@@ -19,7 +23,7 @@
 
 
 
-    <section class="menu-tela" style="display: flex; ">
+    <section class="menu-tela" id="menu-mobili">
         <aside class="menu-notas" style="">
             <div class="btn-create-notas">
                 <button class="btn btn-primary" style="margin: 25px 0;">
@@ -68,7 +72,7 @@
 
         </aside>
 
-        <aside class="tela">
+        <aside class="tela ">
 
             <div class="tela-banner"></div>
             <div class="tela-title">
@@ -107,13 +111,16 @@
                 </div>
 
             </div>
-
+            <button class="btn-menu-notas" aria-label="Abrir menu de notas">
+                <i class="fa-solid fa-plus"></i>
+              </button>
 
         </aside>
         <aside class="tela-right"></aside>
 
 
     </section>
+
 
 
 </section>
