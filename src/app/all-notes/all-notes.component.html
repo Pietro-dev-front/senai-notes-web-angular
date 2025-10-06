@@ -1,7 +1,8 @@
 <section class="section-container">
     <section class="nav" style="">
         <div class="logotipo" style="height: 40px; ">
-            <img src="assets/imagens/logo.png" alt="">
+            <button (click) = "ligarDesligarDarkMode()" class = "darkmode-btn botao-menor"><i class="fa-solid fa-moon"></i></button>
+            <img src="darkMode == true? assets/imagens/logo.png" alt="">
         </div>
         <div class="nav-rigth" style="display:flex; ">
             <div class="ipt-container" style="display: flex; gap: 15px;">
@@ -19,7 +20,7 @@
 
 
 
-    <section class="menu-tela" style="display: flex; ">
+    <section class="bem-vindo menu-tela" style="display: flex; ">
         <aside class="menu-notas" style="">
             <div class="btn-create-notas">
                 <button class="btn btn-primary" style="margin: 25px 0;">
@@ -31,7 +32,7 @@
                     <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
                 </div>
                 <div class="card-txt">
-                    <div class="card-title">Título do card</div>
+                    <div class="primeira-parte card-title">Título do card</div>
                     <div class="card-date">28 sep 2025</div>
                     <div class="card-bts">
                         <span>Travel</span>
@@ -44,7 +45,7 @@
                     <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
                 </div>
                 <div class="card-txt">
-                    <div class="card-title">Título do card</div>
+                    <div class="segunda-parte card-title">Título do card</div>
                     <div class="card-date">28 sep 2025</div>
                     <div class="card-bts">
                         <span>Travel</span>
@@ -57,7 +58,7 @@
                     <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
                 </div>
                 <div class="card-txt">
-                    <div class="card-title">Título do card</div>
+                    <div class="terceira-parte card-title">Título do card</div>
                     <div class="card-date">28 sep 2025</div>
                     <div class="card-bts">
                         <span>Travel</span>
@@ -73,17 +74,17 @@
             <div class="tela-banner"></div>
             <div class="tela-title">
                 <div class="create-title">
-                    <h2>Enter a title..</h2>
+                    <h2 class="quarta-parte">Enter a title..</h2>
                 </div>
                 <div class="edited-tags">
                     <div class="edited" style="font-family: sans-serif;">
                         <img src="assets/imagens/Tag.png" alt="">
-                        <span>Last edited</span>
+                        <span class="quinta-parte">Last edited</span>
 
                     </div>
                     <div class="tags">
                         <img src="assets/imagens/last.png" alt="">
-                        <span>Tags</span>
+                        <span class="sexta-parte">Tags</span>
 
                     </div>
                 </div>
@@ -98,11 +99,11 @@
                 <div class="bts-footer">
                     <div class="">
                         <button class="btn btn-primary" style="margin: 25px 0;">
-                            Save <span class="badge text-bg-secondary">Note</span>
+                            Save Note
                         </button>
                     </div>
                     <div class="bts2">
-                        <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+                        <button type="button" class="setima-parte btn btn-secondary btn-lg">Cancel</button>
                     </div>
                 </div>
 

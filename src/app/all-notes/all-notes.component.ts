@@ -7,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrl: './all-notes.component.scss'
 })
 export class AllNotesComponent {
+  darkMode: boolean = false
+  
+  ligarDesligarDarkMode() {
+
+    this.darkMode = !this.darkMode; // o inverso do this.darkmode .
+  
+    document.body.classList.toggle("dark-mode", this.darkMode);
+    
+    localStorage.setItem("darkMode", this.darkMode.toString());
+  }
 
 }
+

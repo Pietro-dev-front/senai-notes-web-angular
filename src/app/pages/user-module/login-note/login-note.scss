@@ -2,6 +2,9 @@
     position: absolute;
     left: 20px;
     top: 20px;
+    background-color: white;
+    border-radius: 1000px;
+    border:none;
 }
 
 ::ng-deep body.dark-mode .fundo {
