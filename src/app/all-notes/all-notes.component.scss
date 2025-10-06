@@ -225,7 +225,6 @@
 .tela-description textarea{
     margin-top: 10px;
     width: 100%;
-    height: 55vh;
     background-color: #f5f9fa;
     font-size: 16px;
     border: transparent;
@@ -407,6 +406,49 @@
   }
 
   ::ng-deep body.dark-mode .fundo {
+
+    background-color:black !important;
+  
+  }
+
+    ::ng-deep body.dark-mode .primeira-parte {
+
+    color:white !important;
+  
+  }
+
+      ::ng-deep body.dark-mode .segunda-parte {
+
+    color:white !important;
+  
+  }
+
+        ::ng-deep body.dark-mode .terceira-parte {
+
+    color:white !important;
+  
+  }
+
+        ::ng-deep body.dark-mode .quarta-parte {
+
+    color:white !important;
+  
+  }
+
+  
+        ::ng-deep body.dark-mode .quinta-parte {
+
+    color:white !important;
+  
+  }
+
+        ::ng-deep body.dark-mode .sexta-parte {
+
+    color:white !important;
+  
+  }
+
+        ::ng-deep body.dark-mode .setima-parte {
 
     background-color:black !important;
   
