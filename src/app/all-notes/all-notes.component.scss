@@ -180,10 +180,13 @@
 }
 
 .tela-banner {
-    width: 100%;
-    height: 150px;
-    background-color: rgba(128, 128, 128, 0.6);
-    border-radius: 9px;
+  width: 100%;
+  height: 300px; /* importante para que o fundo apareça */
+  border: 1px solid #ccc;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #808080;
 }
 
 .tela-title {
@@ -225,7 +228,7 @@
 .tela-description textarea{
     margin-top: 10px;
     width: 100%;
-    height: 55vh;
+
     background-color: #f5f9fa;
     font-size: 16px;
     border: transparent;
