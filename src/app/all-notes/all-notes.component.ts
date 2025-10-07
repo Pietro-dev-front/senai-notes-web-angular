@@ -29,7 +29,7 @@ export class AllNotesComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // restaura dark mode salvo (protegido para SSR)
+    // SSR/prerender: só executa código do browser se window estiver disponível
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('darkMode');
       if (saved) {
@@ -38,10 +38,10 @@ export class AllNotesComponent implements OnInit {
           document.body.classList.toggle('dark-mode', this.darkMode);
         }
       }
+      // carrega notas apenas no browser
+      this.loadNotes();
     }
-
-    // carrega notas iniciais do database.json
-    this.loadNotes();
+    // Se estiver rodando no SSR/prerender, não faz nada que dependa do browser
   }
 
   ligarDesligarDarkMode() {
