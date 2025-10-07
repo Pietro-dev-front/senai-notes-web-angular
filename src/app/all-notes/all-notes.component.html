@@ -1,7 +1,10 @@
 <section class="section-container">
     <section class="nav">
         <div class="logotipo" style="height: 40px; ">
-            <button (click) = "ligarDesligarDarkMode()" class = "darkmode-btn botao-menor"><i class="fa-solid fa-moon"></i></button>
+            <button (click)="ligarDesligarDarkMode()" class="darkmode-btn botao-menor">
+                <span class="visually-hidden">Toggle dark mode</span>
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <img src="darkMode == true? assets/imagens/logo.png" alt="">
         </div>
         <div class="nav-rigth" style="display:flex; ">
@@ -10,7 +13,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Search by title, content, or tags..." style="height:42px;">
                 </div>
-                
+
                 <i class="fa-solid fa-power-off" style="height: 30px;"></i>
 
             </div>
