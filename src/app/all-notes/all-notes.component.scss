@@ -453,5 +453,13 @@
     background-color:black !important;
   
   }
+  
+::ng-deep body.dark-mode .card-title:hover {
+
+    transition: all 0.2s ease;
+    transform: rotateZ(10deg);
+  
+  }
+
 
 
