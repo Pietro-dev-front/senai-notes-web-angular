@@ -57,8 +57,11 @@ export class CadastroNote {
      console.log("Email", this.cadastroNote.value.email)
     console.log("Password", this.cadastroNote.value.password)
 
-    const token = localStorage.getItem("meuToken")
-    console.log("cheguei",token)
+    let token: string | null = null;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem("meuToken");
+    }
+    console.log("cheguei", token)
 
     let response = await fetch("https://senai-gpt-api.azurewebsites.net/users", {
       method: "POST",
@@ -77,7 +80,9 @@ export class CadastroNote {
       this.sucessLogin = "Logado com sucesso.";
       let json = await response.json();
       console.log("JSON", json)
-      window.location.href = "login"
+      if (typeof window !== 'undefined') {
+        window.location.href = "login";
+      }
     } else {
       this.incorrectCredentials = "Credenciais incorretas";
     }
@@ -86,9 +91,12 @@ export class CadastroNote {
 
     this.darkMode = !this.darkMode; // o inverso do this.darkmode .
 
-    document.body.classList.toggle("dark-mode", this.darkMode);
-    
-    localStorage.setItem("darkMode", this.darkMode.toString());
+    if (typeof document !== 'undefined' && document.body) {
+      document.body.classList.toggle("dark-mode", this.darkMode);
+    }
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("darkMode", this.darkMode.toString());
+    }
   }
 
 }

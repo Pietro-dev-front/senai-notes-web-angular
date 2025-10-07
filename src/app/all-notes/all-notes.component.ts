@@ -1,21 +1,90 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+interface INotes {
+  id: number;
+  titulo: string;
+  descricao?: string;
+  imagemUrl?: string;
+  data?: string;
+  tags?: string[];
+}
 
 @Component({
   selector: 'app-all-notes',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule],
   templateUrl: './all-notes.component.html',
-  styleUrl: './all-notes.component.scss'
+  styleUrls: ['./all-notes.component.scss']
 })
-export class AllNotesComponent {
-  darkMode: boolean = false
-  
-  ligarDesligarDarkMode() {
+export class AllNotesComponent implements OnInit {
+  darkMode: boolean = false;
+  notes: INotes[] = [];
+  noteSelecionado: INotes | null = null;
+  tagSelecionada: string = '';
 
-    this.darkMode = !this.darkMode; // o inverso do this.darkmode .
-  
-    document.body.classList.toggle("dark-mode", this.darkMode);
-    
-    localStorage.setItem("darkMode", this.darkMode.toString());
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    // restaura dark mode salvo (protegido para SSR)
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('darkMode');
+      if (saved) {
+        this.darkMode = saved === 'true';
+        if (typeof document !== 'undefined' && document.body) {
+          document.body.classList.toggle('dark-mode', this.darkMode);
+        }
+      }
+    }
+
+    // carrega notas iniciais do database.json
+    this.loadNotes();
+  }
+
+  ligarDesligarDarkMode() {
+    this.darkMode = !this.darkMode;
+    if (typeof document !== 'undefined' && document.body) {
+      document.body.classList.toggle('dark-mode', this.darkMode);
+    }
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('darkMode', this.darkMode.toString());
+    }
+  }
+
+  loadNotes(): void {
+    this.http.get<{ notes: INotes[] }>('/assets/database.json').subscribe({
+      next: (res) => {
+        this.notes = res?.notes ?? [];
+        // se tiver notas, seleciona a primeira por padrão
+        if (this.notes.length > 0) {
+          this.noteSelecionado = this.notes[0];
+        }
+      },
+      error: (err) => {
+        console.error('Erro ao carregar database.json:', err);
+      }
+    });
+  }
+
+  createNote(): void {
+    const novo: INotes = {
+      id: Date.now(),
+      titulo: 'Nova nota',
+      descricao: '',
+      imagemUrl: 'assets/imagens/Rectangle 45.png',
+      data: new Date().toISOString().split('T')[0],
+      tags: []
+    };
+    // adiciona no topo da lista e seleciona
+    this.notes.unshift(novo);
+    this.noteSelecionado = novo;
+  }
+
+  selectNote(note: INotes): void {
+    this.noteSelecionado = note;
   }
 
 }

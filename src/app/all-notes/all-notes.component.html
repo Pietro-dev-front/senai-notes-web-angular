@@ -1,5 +1,5 @@
 <section class="section-container">
-    <section class="nav" style="">
+    <section class="nav">
         <div class="logotipo" style="height: 40px; ">
             <button (click) = "ligarDesligarDarkMode()" class = "darkmode-btn botao-menor"><i class="fa-solid fa-moon"></i></button>
             <img src="darkMode == true? assets/imagens/logo.png" alt="">
@@ -21,48 +21,22 @@
 
 
     <section class="bem-vindo menu-tela" style="display: flex; ">
-        <aside class="menu-notas" style="">
+        <aside class="menu-notas">
             <div class="btn-create-notas">
-                <button class="btn btn-primary" style="margin: 25px 0;">
+                <button class="btn btn-primary" style="margin: 25px 0;" (click)="createNote()">
                     + <span class="badge text-bg-secondary"> Create New Note</span>
                 </button>
             </div>
-            <div class="card-container">
+
+            <div *ngFor="let note of notes" class="card-container" [class.selected]="noteSelecionado?.id === note.id" (click)="selectNote(note)">
                 <div class="card-img">
-                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
+                    <img [src]="note.imagemUrl || 'assets/imagens/Rectangle 45.png'" alt="Imagem da card">
                 </div>
                 <div class="card-txt">
-                    <div class="primeira-parte card-title">Título do card</div>
-                    <div class="card-date">28 sep 2025</div>
+                    <div class="card-title">{{ note.titulo }}</div>
+                    <div class="card-date">{{ note.data }}</div>
                     <div class="card-bts">
-                        <span>Travel</span>
-                        <span>Personal</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card-img">
-                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
-                </div>
-                <div class="card-txt">
-                    <div class="segunda-parte card-title">Título do card</div>
-                    <div class="card-date">28 sep 2025</div>
-                    <div class="card-bts">
-                        <span>Travel</span>
-                        <span>Personal</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card-img">
-                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
-                </div>
-                <div class="card-txt">
-                    <div class="terceira-parte card-title">Título do card</div>
-                    <div class="card-date">28 sep 2025</div>
-                    <div class="card-bts">
-                        <span>Travel</span>
-                        <span>Personal</span>
+                        <span *ngFor="let tag of note.tags">{{ tag }}</span>
                     </div>
                 </div>
             </div>

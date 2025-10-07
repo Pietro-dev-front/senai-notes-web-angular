@@ -67,9 +67,11 @@ export class LoginNote {
       console.log("JSON", json)
       let meuToken = json.accessToken;
       let userId = json.user.id;
-      localStorage.setItem("meuToken", meuToken);
-      localStorage.setItem("meuId",userId);
-      window.location.href = "notas"
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("meuToken", meuToken);
+        localStorage.setItem("meuId", userId);
+        window.location.href = "notas";
+      }
     } else {
       this.incorrectCredentials = "Credenciais incorretas";
     }
@@ -80,9 +82,12 @@ export class LoginNote {
 
     this.darkMode = !this.darkMode; // o inverso do this.darkmode .
 
-    document.body.classList.toggle("dark-mode", this.darkMode);
-    
-    localStorage.setItem("darkMode", this.darkMode.toString());
+    if (typeof document !== 'undefined' && document.body) {
+      document.body.classList.toggle("dark-mode", this.darkMode);
+    }
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("darkMode", this.darkMode.toString());
+    }
   }
 
 
