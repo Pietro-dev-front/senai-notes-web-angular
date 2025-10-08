@@ -453,13 +453,28 @@
     background-color:black !important;
   
   }
-  
-::ng-deep body.dark-mode .card-title:hover {
 
-    transition: all 0.2s ease;
-    transform: rotateZ(10deg);
+  ::ng-deep body.dark-mode .oitava-parte {
+
+    background-color:#808080 !important;
   
   }
+
+  ::ng-deep body.dark-mode .trocar-cor {
+
+    background-color:#808080 !important;
+  
+  }
+
+  ::ng-deep body.dark-mode .mudar-cor {
+
+    background-color:#808080 !important;
+  
+  }
+  
+
+  
+
 
 
 
