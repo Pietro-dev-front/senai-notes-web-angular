@@ -50,14 +50,14 @@ export class LoginNote {
     console.log("Email", this.loginNote.value.email)
     console.log("Password", this.loginNote.value.password)
 
-    let response = await fetch("https://senai-gpt-api.azurewebsites.net/login",{
+    let response = await fetch("http://senainotes-will.us-east-1.elasticbeanstalk.com/api/auth",{
        method: "POST",
        headers:{
          "Content-Type": "application/json"
        },
        body: JSON.stringify({
          email: this.loginNote.value.email,
-         password: this.loginNote.value.password
+         senha: this.loginNote.value.password
        })
      });
 

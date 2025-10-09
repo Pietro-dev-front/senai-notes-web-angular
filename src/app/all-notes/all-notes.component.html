@@ -31,18 +31,28 @@
                 </button>
             </div>
 
-            <div *ngFor="let note of notes" class="card-container" [class.selected]="noteSelecionado?.id === note.id" (click)="selectNote(note)">
-                <div class="card-img">
-                    <img [src]="note.imagemUrl || 'assets/imagens/Rectangle 45.png'" alt="Imagem da card">
-                </div>
-                <div class="card-txt">
-                    <div class="card-title">{{ note.titulo }}</div>
-                    <div class="card-date">{{ note.data }}</div>
-                    <div class="card-bts">
-                        <span *ngFor="let tag of note.tags">{{ tag }}</span>
+            <ng-container *ngIf="notes.length > 0; else noNotes">
+                <div *ngFor="let note of notes" class="card-container" [class.selected]="noteSelecionado?.id === note.id"
+                    (click)="selectNote(note)" role="button" tabindex="0" (keydown.enter)="selectNote(note)"
+                    (keydown.space)="selectNote(note)" [attr.aria-selected]="noteSelecionado?.id === note.id">
+                    <div class="card-img">
+                        <img [src]="note.imagemUrl || 'assets/imagens/Rectangle 45.png'" alt="Imagem da nota">
+                    </div>
+                    <div class="card-txt">
+                        <div class="card-title">{{ note.titulo || 'Sem título' }}</div>
+                        <div class="card-date" title="{{ note.data }}">{{ note.data || '' }}</div>
+                        <div class="card-bts">
+                            <ng-container *ngIf="note.tags && note.tags.length > 0; else noTags">
+                                <span class="tag" *ngFor="let tag of note.tags">{{ tag }}</span>
+                            </ng-container>
+                            <ng-template #noTags><span class="tag muted">sem tags</span></ng-template>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </ng-container>
+            <ng-template #noNotes>
+                <div class="empty-notes">Nenhuma nota encontrada. Clique em <strong>Create New Note</strong> para adicionar uma.</div>
+            </ng-template>
 
         </aside>
 

@@ -63,16 +63,16 @@ export class CadastroNote {
     }
     console.log("cheguei", token)
 
-    let response = await fetch("https://senai-gpt-api.azurewebsites.net/users", {
+    let response = await fetch("http://senainotes-will.us-east-1.elasticbeanstalk.com/api/usuario", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
+        // "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify({
-        name: this.cadastroNote.value.name,
+        nomeCompleto: this.cadastroNote.value.name,
         email: this.cadastroNote.value.email,
-        password: this.cadastroNote.value.password,
+        senha: this.cadastroNote.value.password,
       }),
     });
 
