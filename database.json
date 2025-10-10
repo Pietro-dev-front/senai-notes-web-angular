@@ -1,15 +1,3 @@
 {
-    "notas" : [
-        {
-            "titulo": "Titulo da nota",
-            "descricao" : "Descricao da nota",
-            "imagemUrl" : "link da imagem",
-            "usuarioId" : "1",
-            "tag" : [
-                "Tag 1",
-                "Tag 2",
-                "Tag 3"
-            ]
-        }
-    ]
+  "notas": []
 }

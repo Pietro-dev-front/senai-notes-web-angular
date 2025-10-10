@@ -1,5 +1,4 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { MockAuthService } from '../../../service/mock-auth.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -77,7 +76,7 @@ export class LoginNote {
     }
     this.cd.detectChanges();
   }
- 
+
   ligarDesligarDarkMode() {
 
     this.darkMode = !this.darkMode; // o inverso do this.darkmode .

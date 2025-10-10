@@ -1,0 +1,970 @@
+/* Reseta margens/paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Barra superior */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #d1d5db;
+  padding: 20px 40px;
+}
+
+.content {
+  flex: 1;
+  /* ocupa todo espaço disponível */
+  padding: -100px;
+  overflow: auto;
+  position: relative;
+}
+
+input[type="submit"] {
+  background-color: #ffffff;
+  /* Cor de fundo */
+  color: rgb(0, 0, 0);
+  /* Cor do texto */
+  padding: 10px 20px;
+  /* Preenchimento */
+  border: none;
+  /* Remover borda padrão */
+  border-radius: 5px;
+  /* Cantos arredondados */
+  cursor: pointer;
+  /* Mudar cursor para mãozinha */
+  font-weight: bold;
+}
+
+.etiquetas {
+  align: right;
+  float: right;
+  padding: 5px 10px;
+  /* deixa o select mais confortável */
+  position: relative;
+  top: -10px;
+  margin: 25px;
+  border: none;
+}
+
+.top-bar .logo {
+  font-size: 1.2rem;
+  font-weight: 600;
+
+}
+
+.search-area {
+  display: flex;
+  gap: 10px;
+}
+
+.search-area input {
+  padding: 12px 30px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+}
+
+.power-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Layout principal */
+.notes-app {
+  display: flex;
+  height: calc(100vh - 50px);
+  background: #f9fafb;
+  position: relative;
+  /* para a right-bar se posicionar direito */
+}
+
+.right-bar {
+  width: 360px;
+  background: #fff;
+  border-left: 1px solid #d1d5db;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Barra lateral */
+.sidebar {
+  width: 360px;
+  background: #fff;
+  border-right: 1px solid  #d1d5db;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.btn-create {
+  background: #335CFF;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 20px;
+  animation-name: show-up;
+  animation-duration: .5s;
+}
+
+.btn-delete {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 6px;
+  padding: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 10px;
+  border: 1px solid #b6b5b5;
+}
+
+.notes-list {
+  overflow-y: auto;
+}
+
+.note-item {
+  display: flex;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.note-item:hover {
+  background-color:#e0f2fe;
+
+}
+
+.note-item.active {
+  background: #e0f2fe;
+}
+
+
+.thumb1 {
+  width: 60px;
+  height: 80px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-image: url('/assets/imagens/Rectangle 45.png');
+  background-size: cover;
+  /* Faz a imagem cobrir a área de forma proporcional */
+  background-position: center;
+  /* Centraliza a imagem */
+
+}
+
+.tag-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag-option {
+  border: 1px solid #ccc;
+  background: transparent;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag-option.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+.note-tags {
+  display: flex;
+  flex-wrap: wrap;   // permite quebrar linha se não couber
+  gap: 4px;          // espaço entre as tags
+  margin-top: 6px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e3e3e3;
+  color: #333;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;  // evita que a palavra quebre no meio
+}
+
+.dark-mode .tag {
+  background-color: #444;
+  color: #f1f1f1;
+}
+.note-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: #fff;
+  transition: background 0.2s;
+}
+
+.note-item:hover {
+  background-color: #f5f5f5;
+}
+
+.note-item .meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;  // ocupa todo espaço restante
+  overflow: hidden; // evita overflow horizontal
+}
+
+
+
+.thumb2 {
+
+  width: 60px;
+  height: 80px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-image: url('/assets/imagens/Rectangle 46 .png');
+  background-size: cover;
+  /* Faz a imagem cobrir a área de forma proporcional */
+  background-position: center;
+  /* Centraliza a imagem */
+
+}
+
+.thumb3 {
+
+  width: 60px;
+  height: 80px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-image: url('/assets/imagens/Rectangle 47.png');
+  background-size: cover;
+  /* Faz a imagem cobrir a área de forma proporcional */
+  background-position: center;
+  /* Centraliza a imagem */
+
+}
+
+.thumb4 {
+
+  width: 60px;
+  height: 80px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-image: url('/assets/imagens/Rectangle 48.png');
+  background-size: cover;
+  /* Faz a imagem cobrir a área de forma proporcional */
+  background-position: center;
+  /* Centraliza a imagem */
+}
+
+.thumb5 {
+
+  width: 60px;
+  height: 80px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-image: url('/assets/imagens/Rectangle 49.png');
+  background-size: cover;
+  /* Faz a imagem cobrir a área de forma proporcional */
+  background-position: center;
+  /* Centraliza a imagem */
+}
+
+.thumb6 {
+
+  width: 60px;
+  height: 80px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-image: url('/assets/imagens/Rectangle 50 (1).png');
+  background-size: cover;
+  /* Faz a imagem cobrir a área de forma proporcional */
+  background-position: center;
+  /* Centraliza a imagem */
+}
+
+.thumb7 {
+
+  width: 60px;
+  height: 80px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-image: url('/assets/imagens/Rectangle 52.png');
+  background-size: cover;
+  /* Faz a imagem cobrir a área de forma proporcional */
+  background-position: center;
+  /* Centraliza a imagem */
+}
+
+.meta .note-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.note-tags {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  padding: 2px 6px;
+  height: 25px;
+  margin-top: 6px;
+}
+
+.note-tags .tag {
+  background: #e2e8f0;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-right: 8px;
+}
+
+.note-date {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+
+.cover-image {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
+.note-head {
+  margin-bottom: 20px;
+  padding-left: 60px;
+
+}
+
+.note-title-display {
+  margin-bottom: 10px;
+  border: none;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.note-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #475569;
+
+}
+
+.tags .tag {
+  background: #bae6fd;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 4px;
+
+}
+
+.tag1{
+  background: #bae6fd;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 60px;
+  padding-right: 60px;
+  border-top: 1px solid  #d1d5db;
+}
+
+.input-title {
+  font-size: 1.2rem;
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.text-editor {
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  resize: vertical;
+  min-height: 200px;
+  margin-top: 60px;
+}
+
+.editor-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 60px;
+  padding-left: 60px;
+  border-top: 1px solid  #d1d5db;
+}
+
+.btn-primary {
+  background: #335CFF;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-ghost {
+  background: none;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.note-view {
+  position: relative;
+  background-color: white;
+  padding-right: 0px;
+  height: 100%;
+  /* tenta ocupar toda altura possível */
+  display: flex;
+  flex-direction: column;
+}
+
+.noteimg {
+  width: 90%;
+  padding: 20px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.image {
+  width: 100%;
+  height: 400px;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative; /* adição: permite centralizar o .image_hint */
+}
+
+
+.upload-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+
+}
+
+.image__hint {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #64748b;          /* cinza suave */
+  background: rgba(0,0,0,0.02);
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.note-editor .image[style*='background-image'] .image__hint {
+  display: none;
+}
+
+.note-view::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+
+}
+
+
+.input-icon-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon-container input {
+  width: 100%;
+  padding-left: 35px;
+  height: px;
+  box-sizing: border-box;
+}
+
+.input-icon-container i {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-30%);
+  color: #aaa;
+  pointer-events: none;
+}
+
+.btn2 {
+  border: none;
+  padding-right: 30px;
+  background-color: white
+}
+
+.imgs{
+  align-items: center;
+  background-size: cover;
+  width: 170px;
+  height: 35px;
+
+
+}
+
+
+/* Seu CSS base permanece igual até aqui... */
+
+/* Responsivo para telas até 768px */
+@media (max-width: 768px) {
+  /* Layout principal em coluna */
+  .notes-app {
+    flex-direction: column;
+    height: auto; /* Para não ficar preso na altura fixa */
+  }
+
+  /* Sidebar no topo */
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px;
+    max-height: 200px; /* opcional para não ocupar muito espaço */
+    overflow-y: auto;
+  }
+
+  /* Botão criar ocupa 100% */
+  .btn-create {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  /* Conteúdo principal ocupa toda a largura */
+  .content {
+    width: 100%;
+    padding: 10px;
+    height: auto;
+  }
+
+  /* Cabeçalho da nota */
+  .note-head {
+    padding: 0 10px;
+  }
+
+  /* Título da nota maior mas adaptado */
+  .note-title-display {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Editor com padding menor */
+  .editor {
+    padding: 0 10px;
+  }
+
+  .text-editor {
+    margin-top: 30px;
+    min-height: 150px;
+  }
+
+  /* Footer dos botões em coluna */
+  .editor-footer {
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Botões salvar e cancelar ocupam 100% */
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Right-bar (onde está o delete) embaixo */
+  .right-bar {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+    padding: 10px;
+  }
+
+  .btn-delete {
+    width: 100%;
+  }
+
+  /* Imagem de capa menor e responsiva */
+  .image {
+    height: 200px;
+  }
+
+  /* Barra superior empilhada */
+  .top-bar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  /* Área de busca vertical */
+  .search-area {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Input da busca full width */
+  .search-area input {
+    width: 100%;
+    padding: 10px 30px;
+  }
+
+  /* Ícone dentro do input adaptado */
+  .input-icon-container {
+    width: 100%;
+  }
+
+  .input-icon-container i {
+    right: 15px;
+  }
+
+  /* Itens da lista de notas mais compactos */
+  .note-item {
+    flex-direction: row;
+    align-items: center;
+    padding: 8px;
+  }
+
+  .note-title {
+    font-size: 1rem;
+  }
+
+  .meta {
+    flex: 1;
+  }
+
+  /* Thumbs menores */
+  .thumb1, .thumb2, .thumb3, .thumb4, .thumb5, .thumb6, .thumb7 {
+    width: 40px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  /* Tags se adaptam */
+  .note-tags {
+    flex-wrap: wrap;
+  }
+
+  /* Select etiquetas full width e margin ajustada */
+  .etiquetas {
+    float: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  /* Meta da nota vertical */
+  .note-meta-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  /* Tags menores */
+  .tags .tag {
+    font-size: 0.8rem;
+  }
+}
+.note-meta-row .tags {
+  display: flex;
+  flex-wrap: wrap;       // permite quebrar tags
+  align-items: center;   // alinha tags e data verticalmente
+  gap: 6px;              // espaçamento entre as tags
+}
+.btn-delete-card {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: transparent;
+  border: none;
+  color: #f00;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+.last-edited {
+  margin-left: auto;     // empurra a data/hora para a direita
+  font-size: 0.75rem;
+  color: #777;
+  white-space: nowrap;   // não quebra a data
+}
+
+  ::ng-deep body.dark-mode .top-bar{
+
+    background-color: black !important;
+  }
+
+  ::ng-deep body.dark-mode .sidebar{
+
+    background-color: black !important;
+  }
+
+  ::ng-deep body.dark-mode .notes-app{
+
+    background-color: black !important;
+  }
+
+  ::ng-deep body.dark-mode .right-bar{
+    background-color: black !important;
+
+
+  }
+
+
+
+  ::ng-deep body.dark-mode .power-btn {
+
+    color: white;
+  }
+
+
+  ::ng-deep body.dark-mode .note-title {
+
+    color: white;
+
+
+  }
+
+  ::ng-deep body.dark-mode .note-tags{
+
+    color: black;
+
+
+
+  }
+
+  ::ng-deep body.dark-mode .note-date {
+
+    color: white;
+
+
+
+
+  } ::ng-deep body.dark-mode .note-title-display {
+
+    color: white;
+    background-color: #000000;
+
+  }
+
+
+ ::ng-deep body.dark-mode .image {
+
+  background-color: black !important;
+
+
+  }
+
+  ::ng-deep body.dark-mode .content {
+
+    background-color: black !important;
+
+
+    }
+
+
+
+ ::ng-deep body.dark-mode .cover {
+
+  background-color: black !important;
+  color: white;
+
+
+}
+
+::ng-deep body.dark-mode .note-head{
+
+  background-color: black !important;
+
+
+
+}
+
+::ng-deep body.dark-mode .etiquetas {
+
+ color: white;
+ background-color: #000000;
+
+
+}
+
+::ng-deep body.dark-mode .editor {
+
+  background-color: black !important;
+
+
+}
+
+::ng-deep body.dark-mode .right-bar {
+
+  background-color: black !important;
+
+
+}
+
+::ng-deep body.dark-mode .note-view {
+
+  background-color: black !important;
+
+
+}
+
+::ng-deep body.dark-mode .btn-ghost {
+
+  color: white;
+  background-color: #1b1b1b;;
+  border: none;
+
+
+}
+
+::ng-deep body.dark-mode .text-editor {
+
+  color: white;
+  background-color: #1b1b1b;;
+
+
+
+}
+
+::ng-deep body.dark-mode .btn-delete {
+
+  color: white;
+  background-color: #1b1b1b;;
+  border: none;
+
+
+
+}
+
+
+::ng-deep body.dark-mode .inpt{
+
+  color: white;
+  background-color: #1b1b1b;
+  border: none;
+
+
+
+}
+
+::ng-deep body.dark-mode .btn2 {
+
+  background-color: black;
+  color: white;
+  border: none;
+
+
+}
+
+::ng-deep body.dark-mode .note-item:hover {
+
+  background-color: #1b1b1b;
+  color: white;
+  border: none;
+
+
+}
+
+::ng-deep body.dark-mode .tag1 {
+
+  background-color: #1b1b1b;
+  color: white;
+
+
+
+}
+::ng-deep body.dark-mode .image__hint {
+
+  background-color: #1b1b1b;
+  color: white;
+
+
+
+}
+
+/* arquivo: styles.css ou no css do componente com ::ng-deep */
+::ng-deep body.dark-mode .sidebar {
+  background: #1b1b1b; /* fundo escuro */
+  border-right: 1px solid #333; /* borda mais clara para contraste */
+  color: #fff; /* texto branco */
+
+  scrollbar-color: #1b1b1b black; /* thumb cor e fundo */
+  scrollbar-width: thin;
+}
+
+::ng-deep body.dark-mode .sidebar::-webkit-scrollbar {
+  width: 15px; /* largura da barra */
+}
+
+::ng-deep body.dark-mode .sidebar::-webkit-scrollbar-track {
+  background:  black/*/* fundo da barra */
+}
+
+::ng-deep body.dark-mode .sidebar::-webkit-scrollbar-thumb {
+  background-color: #1b1b1b; /* cor da parte que se move */
+  border-radius: 10px;
+}
+
+::ng-deep body.dark-mode .sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa; /* cor quando o mouse passa */
+}
+/* Dark mode bordas */
+::ng-deep body.dark-mode .sidebar {
+  border: 1px solid #1b1b1b;  /* borda mais clara no dark mode */
+}
+
+::ng-deep body.dark-mode .right-bar {
+  border: 1px solid #1b1b1b;  /* borda mais clara no dark mode */
+}
+::ng-deep body.dark-mode .top-bar {
+  border: 1px solid #1b1b1b;  /* borda mais clara no dark mode */
+}
+
+::ng-deep body.dark-mode .editor-footer {
+  border: 1px solid #1b1b1b;  /* borda mais clara no dark mode */
+}
+
+::ng-deep body.dark-mode .editor {
+  border: 1px solid #1b1b1b;  /* borda mais clara no dark mode */
+}

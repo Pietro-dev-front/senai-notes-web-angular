@@ -1,0 +1,122 @@
+<!-- Topo -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+<header class="top-bar">
+  <button class="btn2" (click)="ligarDesligarDarkMode()">
+    <i class="fa-solid fa-moon"></i> {{ darkMode == true ? 'Light mode' : 'Dark mode' }}
+  </button>
+  <div class="logo">
+    <img
+      class="imgs"
+      [src]="darkMode == true ? 'imgs/logodarkmode.png' : 'imgs/logo.svg'"
+      alt="Senai Notes Logo"
+    />
+  </div>
+  <div class="search-area">
+    <div class="input-icon-container">
+      <input class="inpt" type="text" placeholder="Search for notes..." />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <button class="power-btn">⏻</button>
+  </div>
+</header>
+
+<div class="notes-app">
+  <!-- Conteúdo principal -->
+  <aside class="sidebar">
+    <button class="btn-create" (click)="onNoteCreate()">+ Create a new note</button>
+
+    @for (nota of notes; track $index) {
+    <div
+      (click)="onNoteClick(nota)"
+      class="note-item"
+      [ngClass]="{ 'note-active': nota === selectedNote }"
+    >
+      <div
+        class="thumb"
+        [ngStyle]="{
+          'background-image': nota.imagemUrl
+            ? 'url(' + nota.imagemUrl + ')'
+            : 'url(assets/imgs/thumb-default.jpg)'
+        }"
+      ></div>
+
+      <div class="meta">
+        <div class="note-title">{{ nota.titulo }}</div>
+        <div class="note-tags">
+          <span *ngFor="let tag of nota.tags" class="tag">{{ tag }}</span>
+        </div>
+        <div class="note-date">{{ nota.dataAtualizacao | date : 'dd MMM yyyy' }}</div>
+      </div>
+
+      <button type="button" class="btn-delete-card" (click)="onNoteDeleteCard(nota, $event)">
+        ✕
+      </button>
+    </div>
+    }
+  </aside>
+
+  <main class="content">
+    <div *ngIf="selectedNote" class="note-view">
+      <label
+        class="image"
+        [style.background-image]="'url(' + (selectedNote?.imagemUrl || urlImagem || '') + ')'"
+      >
+        <input type="file" accept="image/*" (change)="definirImagem($event)" class="upload-img" />
+        <span class="image__hint" *ngIf="!urlImagem">Click to select an image</span>
+      </label>
+
+      <div class="cover">
+        <div class="cover-image">
+          <svg viewBox="0 0 800 150" preserveAspectRatio="none" class="svg-cover"></svg>
+        </div>
+      </div>
+
+      <div class="note-head">
+        <input [formControl]="tituloNota" class="note-title-display" />
+        <div class="tag-selector">
+          <button
+            *ngFor="let tag of availableTags"
+            type="button"
+            class="tag-option"
+            [class.active]="selectedNote?.tags?.includes(tag)"
+            (click)="toggleTag(tag)"
+          >
+            {{ tag }}
+          </button>
+        </div>
+
+        <div class="note-meta-row">
+          <div class="tags">
+            <span *ngFor="let tag of selectedNote?.tags" class="tag1">
+              {{ tag }}
+            </span>
+
+            <span class="last-edited">
+              Last edited {{ selectedNote?.dataAtualizacao | date : 'dd MMM yyyy' }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <form class="editor">
+        <textarea
+          [formControl]="descricaoNota"
+          rows="12"
+          class="text-editor"
+          placeholder="Escreva sua nota..."
+        ></textarea>
+      </form>
+
+      <div class="editor-footer">
+        <button type="button" class="btn-primary" (click)="onNoteSave()">Save</button>
+        <button type="button" class="btn-ghost" (click)="selectedNote = null">Cancel</button>
+      </div>
+    </div>
+  </main>
+  <div class="right-bar">
+    <button (click)="onNoteDelete()" class="btn-delete">+ Delete note</button>
+  </div>
+</div>
