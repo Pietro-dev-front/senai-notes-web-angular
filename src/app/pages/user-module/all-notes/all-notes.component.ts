@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { NotesService } from '../../../services/notes.service';
+import { NotesService } from '../../../notes.service';
 
 
 interface Note {

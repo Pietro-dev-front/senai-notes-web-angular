@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 
 export class NotesService {
-  private apiUrl = 'http://localhost:3000/notas';  // URL da sua API
+  // Endpoint público de anotações
+  private apiUrl = 'http://senai-gpt-api.azurewebsites.net/senainotes/notasg1';
 
   constructor(private http: HttpClient) {}
 
@@ -25,10 +26,9 @@ export class NotesService {
   // Método POST para criar uma nova nota
   createNote(note: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, note);
-
-}
+  }
 
   deleteNote(id: number): Observable<any> {
-  return this.http.delete(`http://localhost:3000/notas/`+ id);
+  return this.http.delete<any>(`${this.apiUrl}/${id}`);
 }
 }
